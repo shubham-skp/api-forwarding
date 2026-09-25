@@ -1,16 +1,42 @@
-# React + Vite
+# API Forwarding Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack application demonstrating seamless local API request forwarding and proxying between a **React (Vite)** frontend and a **Python (Flask)** backend.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📸 Overview
 
-## React Compiler
+This repository demonstrates how to avoid CORS issues and hardcoded backend URLs in development by forwarding frontend requests directly to a local Python backend service via a proxy setup.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** Built with React + Vite. Uses standard `fetch('/api/data')` requests forwarded seamlessly to the backend.
+- **Backend:** Built with Python + Flask. Serves JSON data loaded dynamically from `backend/data.json` along with system health endpoints.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📁 Repository Structure
+
+```text
+API Forwarding/
+├── .venv/              # Python virtual environment (ignored by git)
+├── backend/
+│   ├── app.py          # Flask API server
+│   └── data.json       # Sample JSON data file
+├── dist/               # Production build output
+├── node_modules/       # Node.js dependencies
+├── public/
+│   ├── favicon.svg     # Favicon
+│   └── icons.svg       # SVG icons
+├── src/
+│   ├── assets/
+│   │   └── hero.png    # App assets/images
+│   ├── App.css         # App component styles
+│   ├── App.jsx         # Main React UI fetching /api/data
+│   ├── index.css       # Global CSS styles
+│   └── main.jsx        # React DOM entry point
+├── .gitignore          # Git ignore rules
+├── eslint.config.js    # ESLint configuration
+├── index.html          # HTML entry page
+├── package-lock.json   # Locked dependency tree
+├── package.json        # Frontend dependencies & scripts
+├── README.md           # Documentation
+└── vite.config.js      # Vite development proxy configuration
